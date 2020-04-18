@@ -1,0 +1,22 @@
+{
+  "configurations": [
+    
+    {
+      "type": "java",
+      "name": "Spring Boot-Application<clvt>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "console": "internalConsole",
+      "mainClass": "com.gbm.clvt.Application",
+      "projectName": "clvt",
+      "args": ""
+    },
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "Launch chrome against localhost",
+      "url": "localhost:4200",
+      "webRoot": "${workspaceFolder}"
+    }
+  ]
+}
