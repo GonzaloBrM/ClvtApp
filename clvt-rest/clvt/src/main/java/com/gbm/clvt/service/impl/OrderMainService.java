@@ -7,7 +7,9 @@ import com.gbm.clvt.repository.OrderRepository;
 import com.gbm.clvt.service.OrderService;
 
 import org.springframework.boot.autoconfigure.AutoConfigureOrder;
+import org.springframework.stereotype.Service;
 
+@Service("orderService")
 public class OrderMainService implements OrderService {
 
   @AutoConfigureOrder

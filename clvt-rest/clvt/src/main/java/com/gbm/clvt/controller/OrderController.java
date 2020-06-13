@@ -6,16 +6,12 @@ import com.gbm.clvt.model.Order;
 import com.gbm.clvt.service.OrderService;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @RestController
 @PreAuthorize("hasRole('ROLE_USER')")
@@ -31,14 +27,7 @@ public class OrderController {
   }
 
   @PostMapping("/add")
-  ResponseEntity<Order> add(@RequestBody Order request) {
-    Order order = service.create(request);
-
-    String uri = ServletUriComponentsBuilder.fromCurrentServletMapping().path("/orders/{id}")
-        .buildAndExpand(order.getId()).toString();
-    HttpHeaders headers = new HttpHeaders();
-    headers.add("Location", uri);
-
-    return new ResponseEntity<>(order, headers, HttpStatus.CREATED);
+  Order add(@RequestBody Order request) {
+    return service.create(request);
   }
 }
